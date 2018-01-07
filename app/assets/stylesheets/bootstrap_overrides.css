@@ -1,0 +1,26 @@
+body ,html {
+    height: 100%;
+}
+.container {
+    width: 100%;
+    min-height: 550px;
+}
+
+#footer{
+  margin-top: 20px;
+  text-align: center;
+  padding: 40px 0;
+  background-color: #DCDCDC;
+}
+#footer .navbar-nav{
+  float: none;
+  width: 420px;
+  margin: 10px auto;
+}
+
+@media (max-width: 767px){
+  #footer .navbar-nav{
+  width: 60px;
+  font-size: 10px;
+   }
+ }

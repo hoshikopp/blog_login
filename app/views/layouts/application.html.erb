@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport",content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+              <span class="sr-only">Blog</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">5656Blog</a>
+          </div>
+          <div id="gnavi" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><%= link_to 'TOP',blogs_path%></li>
+              <li><%= link_to 'ブログを作成する',new_blog_path %></li>
+              <% if logged_in? %>
+                <li><%= link_to 'mypage',user_path(current_user.id) %></li>
+                <li><%= link_to 'logout',session_path(current_user.id),method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'sighup',new_user_path %></li>
+                <li><%= link_to 'login',new_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <%flash.each do |key,value| %>
+    <%= content_tag(:div,value,class:"#{key}") %>
+    <% end %>
+
+  <%= yield %>
+  <div id="footer">
+   <div class="navbar-nav" >
+     <p>5656blog</p>
+   </div>
+  </div>
+  </body>
+</html>

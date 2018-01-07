@@ -1,0 +1,30 @@
+<h2>ブログ詳細</h2>
+
+ <div class= "blog_show">
+    <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="col-md-12 col-sm-6 blog-panel panel panel-default">
+          <div class="panel-heading"><p>ブログタイトル:<%=@blog.title%></p></div>
+          <div class="panel-body">
+          <p>ブログ内容:<%=@blog.content%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+         <% unless @blog.user_id == current_user.id %>
+           <%if @favorite.present? %>
+             <%= link_to "お気に入りを解除する",favorite_path(blog_id:@blog.id),method: :delete, class: 'btn btn-danger btn-lg' %>
+            <% else %>
+             <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-success btn-lg' %>
+            <% end %>
+        <% end %>
+      </div>
+      <%= link_to '戻る',blogs_path,class: 'btn btn-info btn-lg' %>
+    </div>
+
+
+  </div>
+</div>
