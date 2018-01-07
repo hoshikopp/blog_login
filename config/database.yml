@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: bootstrap_production
-  username: bootstrap
-  password: <%= ENV['BOOTSTRAP_DATABASE_PASSWORD'] %>
+  username: ssucffnxbjfneq
+  password: abe540c530b807152d0b48722e0503608f5153c7fabdd1aad072c90bf30739bf
