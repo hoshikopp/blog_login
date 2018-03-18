@@ -22,7 +22,10 @@ body {
   margin-bottom: 0;
 }
 
-
+.main_top{
+  max-width: 50%;
+  margin: 0 auto;
+}
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
