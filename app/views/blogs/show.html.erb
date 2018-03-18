@@ -21,10 +21,15 @@
              <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-success btn-lg' %>
             <% end %>
         <% end %>
+        <%= link_to '戻る',blogs_path,class: 'btn btn-info btn-lg' %>
       </div>
-      <%= link_to '戻る',blogs_path,class: 'btn btn-info btn-lg' %>
+      <p>コメント一覧</p>
+      <div id="comments_area">
+        <%= render partial: 'comments/index',locals:{ comments: @comments,blog: @blog } %>
+     </div>
+       <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+       <%= link_to '編集', edit_blog_path(@blog) %> |
+     <%= link_to '戻る', blogs_path %>
     </div>
-
-
   </div>
 </div>

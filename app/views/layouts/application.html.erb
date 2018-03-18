@@ -23,7 +23,7 @@
           </div>
           <div id="gnavi" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to 'TOP',blogs_path%></li>
+              <li><%= link_to 'TOP',root_path%></li>
               <li><%= link_to 'ブログを作成する',new_blog_path %></li>
               <% if logged_in? %>
                 <li><%= link_to 'mypage',user_path(current_user.id) %></li>
@@ -43,10 +43,10 @@
     <% end %>
 
   <%= yield %>
-  <div id="footer">
-   <div class="navbar-nav" >
-     <p>5656blog</p>
-   </div>
-  </div>
+    <footer class="footer">
+        <div class="container">
+          <p class="text-muted">5656blog</p>
+        </div>
+      </footer>
   </body>
 </html>

@@ -32,12 +32,20 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bcrypt', '3.1.11'
+gem 'dotenv-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 group :development do
@@ -50,6 +58,8 @@ group :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

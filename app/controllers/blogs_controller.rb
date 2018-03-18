@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
 before_action :set_blog,only:[:show,:edit,:update,:destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.all.order("blogs.created_at desc")
   end
 
   def new
@@ -10,17 +10,27 @@ before_action :set_blog,only:[:show,:edit,:update,:destroy]
   end
 
   def show
-    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    if logged_in?
+      @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+      @comment = @blog.comments.build
+      @comments = @blog.comments
+    else
+      redirect_to blogs_path, notice: "ログインしてください"
+    end
+
   end
 
   def create
-    @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id
-    if @blog.save
+    if logged_in?
+      @blog = Blog.new(blog_params)
+      @blog.user_id = current_user.id
+      if @blog.save
+        BlogCreateMailer.blog_create_mail(current_user).deliver
         redirect_to blogs_path, notice:"作成しました"
+      end
     else
         @blog = Blog.new(blog_params)
-        render "new"
+        redirect_to blogs_path, notice:"ログインしてください"
     end
   end
 
