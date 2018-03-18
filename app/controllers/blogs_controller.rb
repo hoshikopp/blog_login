@@ -25,7 +25,7 @@ before_action :set_blog,only:[:show,:edit,:update,:destroy]
       @blog = Blog.new(blog_params)
       @blog.user_id = current_user.id
       if @blog.save
-        BlogCreateMailer.blog_create_mail(current_user).deliver
+        # BlogCreateMailer.blog_create_mail(current_user).deliver
         redirect_to blogs_path, notice:"作成しました"
       end
     else
