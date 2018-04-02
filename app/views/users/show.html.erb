@@ -9,11 +9,20 @@
 
   <h2>お気に入り一覧</h2>
       <div class="row">
-        <table class="table table-striped table-responsive">
+        <table class="table table-responsive">
+          <thead>
+           <tr>
+              <th>タイトル</th>
+              <th>ブロガー名</th>
+            </tr>
+          </thead>
           <% @favorite_blogs.each_with_index do |fav,idx| %>
+          <tbody>
             <tr>
               <td><%= idx + 1 %>.<%= fav.title %></td>
+              <td><%= fav.user.name %></td>
             </tr>
+          </tbody>
          <% end %>
         </table>
       </div>

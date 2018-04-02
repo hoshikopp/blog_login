@@ -49,3 +49,8 @@ article li{
 .content_form{
   height: 120px
 }
+.table > thead > tr > th,
+.table > tbody > tr > th {
+  vertical-align: middle;
+  text-align: center;
+}
